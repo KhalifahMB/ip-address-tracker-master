@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/favicon-32x32.png' %}"
+      type="image/png"
+    />
+    <link rel="stylesheet" href='{% static "css/styles.css" %}' />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <style>
+      @font-face {
+        font-family: "Rubik";
+        src: url("{% static 'assets/Rubik/Rubik-Bold.ttf' %}"),
+          url("{% static 'assets/Rubik/Rubik-Medium.ttf' %}"),
+          url("{% static 'assets/Rubik/Rubik-Regular.ttf' %}");
+      }
+    </style>
+
+    <title>Frontend Mentor | IP Address Tracker</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <h1>IP Address Tracker</h1>
+        <div class="search">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search for any IP address or domain"
+          />
+          <div class="icon" id="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14">
+              <path
+                fill="none"
+                stroke="#FFF"
+                stroke-width="3"
+                d="M2 1l6 6-6 6"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="content">
+          <div class="information">
+            <div>
+              <span>IP Address</span>
+              <h2 id="ip">ip address</h2>
+            </div>
+
+            <div>
+              <span>Location</span>
+              <h2 id="location">Location</h2>
+            </div>
+
+            <div>
+              <span>TIMEZONE</span>
+              <h2 id="timezone">Timezone</h2>
+            </div>
+
+            <div>
+              <span>ISP</span>
+              <h2 id="isp">Internet service provider</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="map" id="map">Loading</div>
+    </div>
+
+    {% comment %}
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+    {% endcomment %}
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script
+      src="{% static 'js/script.js' %}"
+      data-api-key="{{api_key}}"
+    ></script>
+  </body>
+</html>
